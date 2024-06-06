@@ -11,10 +11,40 @@ const rl = readline.createInterface({
 });
 
 
-const pigLatin = (word) => {
+// your code here!
+const pigLatin = (userInput) => {
+  // Note: console.log(typeof userInput) => userInput is always a string!
+  // Turn userInput into an array (of words). 
+  
+  const arr = userInput.split(" ") // returns array of strings
 
-  // Your code here
+  // Loop through each word in the array. Replace each word with another word.
 
+  const replaceTheWord = (word) => {
+    if (
+      (word[0] === "a") || 
+      (word[0] === "e") || 
+      (word[0] === "i") || 
+      (word[0] === "o") || 
+      (word[0] === "u")
+    ) {
+      word = word + "yay"
+      return word
+
+    } else {
+      word = word + word[0] // add the first character to the end (string concatenation)
+      let newWord = word.slice(1, word.length)  // select everything except for the 0th index (i.e. remove the 0th index). Note that the slice method doesn't include the index from the 2nd argument in its returned value.
+      newWord = newWord + "ay" // add "ay" to the end (string concatenation)
+      
+      return newWord
+    }
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = replaceTheWord(arr[i])
+  } 
+
+  return arr
 }
 
 // the first function called in the program to get an input from the user
