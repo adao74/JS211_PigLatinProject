@@ -3,17 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script src="main.js"></script>
+    <script src="main2.js"></script>
   </head>
   <body>
     <h1>Hello World!</h1>
     <hr/>
     <div id="display-element"></div>
     <form>
-      <input id="user-input" type="text">
+      <input id="user-input" type="text" value="" onkeyup="saveInput(this.value)">
       <!-- How do you get this input sent to the pigLatin() function? -->
-      <button onclick="pigLatin()">Translate</button>
-    </form>  
+      <button onclick="pigLatin(event)">Translate</button>
+    </form>
+    <p>Translated text:</p>
+    <p id="answer"></p>  
     <hr/>
   </body>
 </html>
